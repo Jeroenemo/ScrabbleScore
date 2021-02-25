@@ -1,27 +1,9 @@
 using System;
+using System.Collections.Generic;
+using ScrabbleScore.Models;
 
-namespace Scrabble
+namespace ScrabbleScore
 {
-  public class Score
-  {
-    
-    private int _score;
-
-    public void Calculate(string word)
-    {
-      int wordLength = word.Length;
-      char[] letterArray;
-      // int score = 0;
-
-      letterArray = word.ToCharArray();
-
-      for (int i = 0; i < wordLength; i++)
-      {
-        Console.WriteLine("Index: {0} Character: {1}", i, letterArray[i]);
-      }
-
-    }
-  }
   public class Program
   {
     public static void Main()
@@ -34,7 +16,11 @@ namespace Scrabble
       // function returns int score of the word
       Score myWord = new Score();
 
-      myWord.Calculate("hello");
+      Console.WriteLine("Welcome to the Unofficial Scrabble Word Score Calculator.");
+      Console.WriteLine("Please enter a word below, and we will output the score for that word:");
+      string userInput = Console.ReadLine();
+      int wordValue = myWord.Calculate(userInput);
+      Console.WriteLine("Your word {0} is worth {1}.", userInput, wordValue);
     }
   }
 }
